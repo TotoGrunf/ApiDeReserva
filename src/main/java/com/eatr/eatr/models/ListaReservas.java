@@ -2,11 +2,10 @@ package com.eatr.eatr.models;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class ListaReservas {
@@ -14,6 +13,13 @@ public class ListaReservas {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "reserva_id")
+    private Reserva reserva;
+
+    @OneToOne(mappedBy = "listaReservas")
+    private ListaReservas listaReservas;
 
     private Integer cantidadDePersonas;
     private Boolean aceptacionDeReserva;

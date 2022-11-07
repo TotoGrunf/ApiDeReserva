@@ -2,10 +2,7 @@ package com.eatr.eatr.models;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Usuario {
@@ -13,6 +10,9 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
+
+    @OneToOne(mappedBy = "usuario")
+    private Usuario usuario;
 
     private String NyA, TelNum;
     private Boolean Seña;

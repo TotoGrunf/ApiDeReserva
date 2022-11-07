@@ -2,9 +2,7 @@ package com.eatr.eatr.models;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 public class Restaurante {
@@ -12,6 +10,10 @@ public class Restaurante {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "listaReservas_id")
+    private ListaReservas listaReservas;
 
     private String nombreResto, email, contraseña, ubicacion;
     private int numMesas;
