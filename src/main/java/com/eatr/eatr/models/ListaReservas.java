@@ -18,8 +18,8 @@ public class ListaReservas {
     @JoinColumn(name = "reserva_id")
     private Reserva reserva;
 
-    @OneToOne(mappedBy = "listaReservas")
-    private ListaReservas listaReservas;
+    //@OneToOne(mappedBy = "listaReservas")
+    //private ListaReservas listaReservas;
 
     private Integer cantidadDePersonas;
     private Boolean aceptacionDeReserva;
