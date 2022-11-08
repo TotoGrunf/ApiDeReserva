@@ -54,6 +54,22 @@ public class Reserva {
         return fecha;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Set<ListaReservas> getListaReservas() {
+        return listaReservas;
+    }
+
+    public void setListaReservas(Set<ListaReservas> listaReservas) {
+        this.listaReservas = listaReservas;
+    }
+
     public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
