@@ -11,9 +11,9 @@ public class Restaurante {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "listaReservas_id")
-//    private ListaReservas listaReservas;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "listaReservas_id", referencedColumnName = "id")
+    private ListaReservas listaReservas;
 
     private String nombreResto, email, contraseña, ubicacion;
     private int numMesas;

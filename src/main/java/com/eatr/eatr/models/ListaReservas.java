@@ -14,12 +14,14 @@ public class ListaReservas {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
+    @OneToOne(mappedBy = "listaReservas")
+    private Restaurante restaurante;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "reserva_id")
     private Reserva reserva;
 
-    //@OneToOne(mappedBy = "listaReservas")
-    //private ListaReservas listaReservas;
+
 
     private Integer cantidadDePersonas;
     private Boolean aceptacionDeReserva;
