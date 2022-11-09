@@ -15,7 +15,7 @@ public class Reserva {
     private long id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuario_id")
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private Usuario usuario;
 
     @OneToMany(mappedBy = "reserva", fetch = FetchType.EAGER)
@@ -28,11 +28,11 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(long id, String numMesa, LocalDateTime fecha, Usuario usuario) {
+    public Reserva(long id, String numMesa, LocalDateTime fecha) {
         this.id = id;
         this.numMesa = numMesa;
         this.fecha = fecha;
-        this.usuario = usuario;
+
     }
 
     public long getId() {

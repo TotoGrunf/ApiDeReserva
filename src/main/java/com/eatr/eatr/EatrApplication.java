@@ -20,7 +20,7 @@ public class EatrApplication {
 	@Bean
 	public CommandLineRunner initData(ReservaRepository reservaRepository){
 		return(args) -> {
-			Reserva reserva1 = new Reserva(1,"mesa12", LocalDateTime.now(),1);
+			Reserva reserva1 = new Reserva(1,"mesa12", LocalDateTime.now());
 			Usuario usario1 = new Usuario(1, "GuillerminaGiovanelli", "3364495984", true);
 			reservaRepository.save(reserva1);
  	};

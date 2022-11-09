@@ -11,8 +11,8 @@ public class Usuario {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-   // @OneToOne(mappedBy = "usuario")
-   // private Usuario usuario;
+    @OneToOne(mappedBy = "usuario")
+    private Reserva reserva;
 
     private String NyA, TelNum;
     private Boolean Seña;
