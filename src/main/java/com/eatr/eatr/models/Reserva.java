@@ -28,10 +28,11 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(long id, String numMesa, LocalDateTime fecha) {
+    public Reserva(long id, String numMesa, LocalDateTime fecha, Usuario usuario) {
         this.id = id;
         this.numMesa = numMesa;
         this.fecha = fecha;
+        this.usuario = usuario;
     }
 
     public long getId() {
