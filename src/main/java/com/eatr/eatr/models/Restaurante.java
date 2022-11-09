@@ -4,7 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
+@Entity
 public class Restaurante {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
@@ -12,7 +12,7 @@ public class Restaurante {
     private long id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "listaReservas_id", referencedColumnName = "id")
+    @JoinColumn(name = "listaReservas_id")
     private ListaReservas listaReservas;
 
     private String nombreResto, email, contraseña, ubicacion;
@@ -22,8 +22,7 @@ public class Restaurante {
     public Restaurante() {
     }
 
-    public Restaurante(long id, String nombreResto, String email, String contraseña, String ubicacion, int numMesas, LocalDateTime diasHorarios) {
-        this.id = id;
+    public Restaurante(String nombreResto, String email, String contraseña, String ubicacion, int numMesas, LocalDateTime diasHorarios) {
         this.nombreResto = nombreResto;
         this.email = email;
         this.contraseña = contraseña;
@@ -86,5 +85,13 @@ public class Restaurante {
 
     public void setDiasHorarios(LocalDateTime diasHorarios) {
         this.diasHorarios = diasHorarios;
+    }
+
+    public ListaReservas getListaReservas() {
+        return listaReservas;
+    }
+
+    public void setListaReservas(ListaReservas listaReservas) {
+        this.listaReservas = listaReservas;
     }
 }

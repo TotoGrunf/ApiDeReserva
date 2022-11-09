@@ -31,8 +31,7 @@ public class ListaReservas {
     public ListaReservas() {
     }
 
-    public ListaReservas(long id, Integer cantidadDePersonas, Boolean aceptacionDeReserva, LocalDateTime fecha, String nroMesa) {
-        this.id = id;
+    public ListaReservas(Integer cantidadDePersonas, Boolean aceptacionDeReserva, LocalDateTime fecha, String nroMesa) {
         this.cantidadDePersonas = cantidadDePersonas;
         this.aceptacionDeReserva = aceptacionDeReserva;
         this.fecha = fecha;
@@ -77,5 +76,21 @@ public class ListaReservas {
 
     public void setNroMesa(String nroMesa) {
         NroMesa = nroMesa;
+    }
+
+    public Restaurante getRestaurante() {
+        return restaurante;
+    }
+
+    public void setRestaurante(Restaurante restaurante) {
+        this.restaurante = restaurante;
+    }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
     }
 }

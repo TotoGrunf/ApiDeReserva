@@ -28,8 +28,7 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(long id, String numMesa, LocalDateTime fecha) {
-        this.id = id;
+    public Reserva(String numMesa, LocalDateTime fecha) {
         this.numMesa = numMesa;
         this.fecha = fecha;
 

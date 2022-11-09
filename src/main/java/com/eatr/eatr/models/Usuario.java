@@ -20,8 +20,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(long id, String nyA, String telNum, Boolean seña) {
-        this.id = id;
+    public Usuario(String nyA, String telNum, Boolean seña) {
         this.NyA = nyA;
         this.TelNum = telNum;
         this.Seña = seña;

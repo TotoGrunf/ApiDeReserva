@@ -21,8 +21,7 @@ public class Mesas {
     public Mesas() {
     }
 
-    public Mesas(long id, Integer nroMesa, Integer ppm, Boolean disponibilidad) {
-        this.id = id;
+    public Mesas(Integer nroMesa, Integer ppm, Boolean disponibilidad) {
         this.nroMesa = nroMesa;
         this.ppm = ppm;
         this.disponibilidad = disponibilidad;
