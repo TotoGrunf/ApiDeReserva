@@ -21,8 +21,6 @@ public class ListaReservas {
     @JoinColumn(name = "reserva_id")
     private Reserva reserva;
 
-
-
     private Integer cantidadDePersonas;
     private Boolean aceptacionDeReserva;
     private LocalDateTime fecha;
