@@ -23,6 +23,7 @@ public class ListaReservasDTO {
         this.cantidadDePersonas = listaReservas.getCantidadDePersonas();
         this.aceptacionDeReserva = listaReservas.getAceptacionDeReserva();
         this.fecha = listaReservas.getFecha();
+        this.NroMesa = listaReservas.getNroMesa();
         this.reservas = listaReservas.getReservas().stream().map(reserva -> new ReservaDTO(reserva)).collect(Collectors.toSet());
     }
 
