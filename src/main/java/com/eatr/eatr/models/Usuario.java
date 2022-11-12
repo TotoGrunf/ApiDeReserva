@@ -38,6 +38,14 @@ public class Usuario {
         return NyA;
     }
 
+//    public Reserva getReserva() {
+//        return reserva;
+//    }
+
+//    public void setReserva(Reserva reserva) {
+//        this.reserva = reserva;
+//    }
+
     public void setNyA(String nyA) {
         NyA = nyA;
     }

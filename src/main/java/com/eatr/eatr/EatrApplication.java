@@ -1,7 +1,9 @@
 package com.eatr.eatr;
 
+import com.eatr.eatr.models.ListaReservas;
 import com.eatr.eatr.models.Reserva;
 import com.eatr.eatr.models.Usuario;
+import com.eatr.eatr.repositories.ListaReservasRepository;
 import com.eatr.eatr.repositories.ReservaRepository;
 import com.eatr.eatr.repositories.UsuarioRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -19,15 +21,24 @@ public class EatrApplication {
 	}
 
 	@Bean
-	public CommandLineRunner initData(ReservaRepository reservaRepository, UsuarioRepository usuarioRepository){
+	public CommandLineRunner initData(ReservaRepository reservaRepository, UsuarioRepository usuarioRepository, ListaReservasRepository listaReservasRepository){
 		return(args) -> {
-			Reserva reserva1 = new Reserva("mesa12", LocalDateTime.now());
 
-			Usuario usario1 = new Usuario("GuillerminaGiovanelli", "3364495984", true);
 
+			Usuario usuario1 = new Usuario("GuillerminaGiovanelli", "3364495984", true);
+
+			Reserva reserva1 = new Reserva("mesa12", LocalDateTime.now(),usuario1);
 
 			reservaRepository.save(reserva1);
-			usuarioRepository.save(usario1);
+
+			ListaReservas listaReservas1 = new ListaReservas(3,true,LocalDateTime.now(),"mesa2", reserva1);
+
+			listaReservas1.addReserva(reserva1);
+
+
+
+			usuarioRepository.save(usuario1);
+			listaReservasRepository.save(listaReservas1);
  	};
 	}
 

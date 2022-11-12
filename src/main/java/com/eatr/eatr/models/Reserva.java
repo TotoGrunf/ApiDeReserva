@@ -1,5 +1,6 @@
 package com.eatr.eatr.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -18,8 +19,11 @@ public class Reserva {
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "reserva", fetch = FetchType.EAGER)
-    Set<ListaReservas> listaReservas = new HashSet<>();
+
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "listaReserva_id")
+    private ListaReservas listaReservas;
 
 
     private String numMesa;
@@ -32,7 +36,16 @@ public class Reserva {
         this.numMesa = numMesa;
         this.fecha = fecha;
 
+
     }
+    public Reserva(String numMesa, LocalDateTime fecha, Usuario usuario) {
+        this.numMesa = numMesa;
+        this.fecha = fecha;
+        this.usuario = usuario;
+
+    }
+
+
 
     public long getId() {
         return id;
@@ -53,7 +66,7 @@ public class Reserva {
     public LocalDateTime getFecha() {
         return fecha;
     }
-
+    @JsonIgnore
     public Usuario getUsuario() {
         return usuario;
     }
@@ -62,11 +75,11 @@ public class Reserva {
         this.usuario = usuario;
     }
 
-    public Set<ListaReservas> getListaReservas() {
+    public ListaReservas getListaReservas() {
         return listaReservas;
     }
 
-    public void setListaReservas(Set<ListaReservas> listaReservas) {
+    public void setListaReservas(ListaReservas listaReservas) {
         this.listaReservas = listaReservas;
     }
 

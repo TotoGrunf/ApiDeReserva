@@ -17,9 +17,12 @@ public class ListaReservas {
     @OneToOne(mappedBy = "listaReservas")
     private Restaurante restaurante;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "reserva_id")
-    private Reserva reserva;
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "reserva_id")
+//    private Reserva reserva;
+
+    @OneToMany(mappedBy = "listaReservas", fetch = FetchType.EAGER)
+    Set<Reserva> reservas = new HashSet<>();
 
     private Integer cantidadDePersonas;
     private Boolean aceptacionDeReserva;
@@ -29,16 +32,19 @@ public class ListaReservas {
     public ListaReservas() {
     }
 
-    public ListaReservas(Integer cantidadDePersonas, Boolean aceptacionDeReserva, LocalDateTime fecha, String nroMesa) {
+    public ListaReservas(Integer cantidadDePersonas, Boolean aceptacionDeReserva, LocalDateTime fecha, String nroMesa, Reserva reservas) {
         this.cantidadDePersonas = cantidadDePersonas;
         this.aceptacionDeReserva = aceptacionDeReserva;
         this.fecha = fecha;
         this.NroMesa = nroMesa;
+        this.addReserva(reservas);
     }
 
     public long getId() {
         return id;
     }
+
+
 
     public void setId(long id) {
         this.id = id;
@@ -84,11 +90,16 @@ public class ListaReservas {
         this.restaurante = restaurante;
     }
 
-    public Reserva getReserva() {
-        return reserva;
+    public Set<Reserva> getReservas() {
+        return reservas;
     }
 
-    public void setReserva(Reserva reserva) {
-        this.reserva = reserva;
+    public void setReservas(Set<Reserva> reservas) {
+        this.reservas = reservas;
+    }
+
+    public void addReserva(Reserva reserva){
+        reserva.setListaReservas(this);
+        reservas.add(reserva);
     }
 }
