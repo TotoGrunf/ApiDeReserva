@@ -32,13 +32,14 @@ public class EatrApplication {
 			reservaRepository.save(reserva1);
 
 			ListaReservas listaReservas1 = new ListaReservas(3,true,LocalDateTime.now(),"mesa2", reserva1);
-
+			listaReservasRepository.save(listaReservas1);
 			listaReservas1.addReserva(reserva1);
 
 
 
+
 			usuarioRepository.save(usuario1);
-			listaReservasRepository.save(listaReservas1);
+
  	};
 	}
 
