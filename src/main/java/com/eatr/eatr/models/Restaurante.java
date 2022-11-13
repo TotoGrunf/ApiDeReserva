@@ -21,14 +21,14 @@ public class Restaurante {
     }
 
     public Restaurante(String nombreResto, String email, String contraseña, String ubicacion, int numMesas,
-                       LocalDateTime diasHorarios, ListaReservas listaReservas) {
+                       LocalDateTime diasHorarios) {
         this.nombreResto = nombreResto;
         this.email = email;
         this.contraseña = contraseña;
         this.ubicacion = ubicacion;
         this.numMesas = numMesas;
         this.diasHorarios = diasHorarios;
-        this.listaReservas = listaReservas;
+
     }
 
     public long getId() {

@@ -27,9 +27,11 @@ public class ListaReservas {
     public ListaReservas() {
     }
 
-    public ListaReservas(Boolean aceptacionDeReserva, LocalDateTime fecha) {
+    public ListaReservas(Boolean aceptacionDeReserva, LocalDateTime fecha, Restaurante restaurante) {
         this.aceptacionDeReserva = aceptacionDeReserva;
         this.fecha = fecha;
+        this.restaurante = restaurante;
+
     }
 
     public long getId() {
