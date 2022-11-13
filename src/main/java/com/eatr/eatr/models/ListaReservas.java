@@ -14,48 +14,30 @@ public class ListaReservas {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    @OneToOne(mappedBy = "listaReservas")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "restaurante_id", referencedColumnName = "id")
     private Restaurante restaurante;
-
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "reserva_id")
-//    private Reserva reserva;
 
     @OneToMany(mappedBy = "listaReservas", fetch = FetchType.EAGER)
     Set<Reserva> reservas = new HashSet<>();
 
-    private Integer cantidadDePersonas;
     private Boolean aceptacionDeReserva;
     private LocalDateTime fecha;
-    private String NroMesa;
 
     public ListaReservas() {
     }
 
-    public ListaReservas(Integer cantidadDePersonas, Boolean aceptacionDeReserva, LocalDateTime fecha, String nroMesa, Reserva reservas) {
-        this.cantidadDePersonas = cantidadDePersonas;
+    public ListaReservas(Boolean aceptacionDeReserva, LocalDateTime fecha) {
         this.aceptacionDeReserva = aceptacionDeReserva;
         this.fecha = fecha;
-        this.NroMesa = nroMesa;
-        this.addReserva(reservas);
     }
 
     public long getId() {
         return id;
     }
 
-
-
     public void setId(long id) {
         this.id = id;
-    }
-
-    public Integer getCantidadDePersonas() {
-        return cantidadDePersonas;
-    }
-
-    public void setCantidadDePersonas(Integer cantidadDePersonas) {
-        this.cantidadDePersonas = cantidadDePersonas;
     }
 
     public Boolean getAceptacionDeReserva() {
@@ -74,14 +56,6 @@ public class ListaReservas {
         this.fecha = fecha;
     }
 
-    public String getNroMesa() {
-        return NroMesa;
-    }
-
-    public void setNroMesa(String nroMesa) {
-        NroMesa = nroMesa;
-    }
-
     public Restaurante getRestaurante() {
         return restaurante;
     }
@@ -98,8 +72,4 @@ public class ListaReservas {
         this.reservas = reservas;
     }
 
-    public void addReserva(Reserva reserva){
-        reserva.setListaReservas(this);
-        reservas.add(reserva);
-    }
 }

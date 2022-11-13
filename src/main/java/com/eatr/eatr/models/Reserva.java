@@ -5,8 +5,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 public class Reserva {
@@ -19,33 +17,23 @@ public class Reserva {
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private Usuario usuario;
 
-
-
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "listaReserva_id")
+    @JoinColumn(name = "listaReservas_id")
     private ListaReservas listaReservas;
-
-
+    private Integer cantidadDePersonas;
     private String numMesa;
     private LocalDateTime fecha;
 
     public Reserva() {
     }
 
-    public Reserva(String numMesa, LocalDateTime fecha) {
-        this.numMesa = numMesa;
-        this.fecha = fecha;
-
-
-    }
-    public Reserva(String numMesa, LocalDateTime fecha, Usuario usuario) {
+    public Reserva(String numMesa, LocalDateTime fecha, Usuario usuario, Integer cantidadDePersonas, ListaReservas listaReservas) {
         this.numMesa = numMesa;
         this.fecha = fecha;
         this.usuario = usuario;
-
+        this.cantidadDePersonas = cantidadDePersonas;
+        this.listaReservas = listaReservas;
     }
-
-
 
     public long getId() {
         return id;
@@ -61,6 +49,14 @@ public class Reserva {
 
     public void setNumMesa(String numMesa) {
         this.numMesa = numMesa;
+    }
+
+    public Integer getCantidadDePersonas() {
+        return cantidadDePersonas;
+    }
+
+    public void setCantidadDePersonas(Integer cantidadDePersonas) {
+        this.cantidadDePersonas = cantidadDePersonas;
     }
 
     public LocalDateTime getFecha() {

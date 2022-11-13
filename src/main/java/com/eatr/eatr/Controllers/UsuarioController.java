@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UsuarioController {
 
     @Autowired
-    UsuarioRepository usuarioRepository;
+    private UsuarioRepository usuarioRepository;
 
     @GetMapping("/api/usuario/{id}")
     public UsuarioDTO getUsuario(@PathVariable long id){

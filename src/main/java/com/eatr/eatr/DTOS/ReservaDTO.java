@@ -11,7 +11,7 @@ public class ReservaDTO {
     private Long id;
     private String numMesa;
     private LocalDateTime fecha;
-
+    private Integer cantidadDePersonas;
     private Usuario usuario;
 
     public ReservaDTO() {
@@ -23,10 +23,15 @@ public class ReservaDTO {
         this.fecha = reserva.getFecha();
         this.numMesa = reserva.getNumMesa();
         this.usuario = reserva.getUsuario();
+        this.cantidadDePersonas = reserva.getCantidadDePersonas();
     }
 
     public Long getId() {
         return id;
+    }
+
+    public Integer getCantidadDePersonas() {
+        return cantidadDePersonas;
     }
 
     public Usuario getUsuario() {

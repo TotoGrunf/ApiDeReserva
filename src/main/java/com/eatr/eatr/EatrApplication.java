@@ -2,9 +2,11 @@ package com.eatr.eatr;
 
 import com.eatr.eatr.models.ListaReservas;
 import com.eatr.eatr.models.Reserva;
+import com.eatr.eatr.models.Restaurante;
 import com.eatr.eatr.models.Usuario;
 import com.eatr.eatr.repositories.ListaReservasRepository;
 import com.eatr.eatr.repositories.ReservaRepository;
+import com.eatr.eatr.repositories.RestauranteRepository;
 import com.eatr.eatr.repositories.UsuarioRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,26 +23,31 @@ public class EatrApplication {
 	}
 
 	@Bean
-	public CommandLineRunner initData(ReservaRepository reservaRepository, UsuarioRepository usuarioRepository, ListaReservasRepository listaReservasRepository){
+	public CommandLineRunner initData(ReservaRepository reservaRepository, UsuarioRepository usuarioRepository,
+									  ListaReservasRepository listaReservasRepository, RestauranteRepository restauranteRepository){
 		return(args) -> {
 
-
 			Usuario usuario1 = new Usuario("GuillerminaGiovanelli", "3364495984", true);
+			Usuario usuario2 = new Usuario("Franck Francis", "55533344422", true);
 
-			Reserva reserva1 = new Reserva("mesa12", LocalDateTime.now(),usuario1);
+			ListaReservas listaReservas1 = new ListaReservas(true,LocalDateTime.now());
 
-			reservaRepository.save(reserva1);
+			Reserva reserva1 = new Reserva("mesa12", LocalDateTime.now(),usuario1,3,listaReservas1);
+			Reserva reserva2 = new Reserva("mesa10", LocalDateTime.now(),usuario2,4,listaReservas1);
 
-			ListaReservas listaReservas1 = new ListaReservas(3,true,LocalDateTime.now(),"mesa2", reserva1);
+			Restaurante restaurante = new Restaurante("El Irlandes Cocinante","elirlandes@gmail.com","resto4321",
+					"Calle Falsa 123",30,LocalDateTime.now(),listaReservas1);
+
+
 			listaReservasRepository.save(listaReservas1);
-			listaReservas1.addReserva(reserva1);
-
-
-
+			reservaRepository.save(reserva1);
+			reservaRepository.save(reserva2);
 
 			usuarioRepository.save(usuario1);
+			usuarioRepository.save(usuario2);
 
- 	};
+			restauranteRepository.save(restaurante);
+ 		};
 	}
 
 }

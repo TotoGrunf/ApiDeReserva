@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ListaReservaController {
 
     @Autowired
-    ListaReservasRepository listaReservasRepository;
+    private ListaReservasRepository listaReservasRepository;
 
     @GetMapping("/api/listaReserva/{id}")
     public ListaReservasDTO getReserva(@PathVariable long id){

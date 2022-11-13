@@ -11,10 +11,8 @@ public class Restaurante {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "listaReservas_id")
+    @OneToOne(mappedBy = "restaurante")
     private ListaReservas listaReservas;
-
     private String nombreResto, email, contraseña, ubicacion;
     private int numMesas;
     private LocalDateTime diasHorarios;
@@ -22,13 +20,15 @@ public class Restaurante {
     public Restaurante() {
     }
 
-    public Restaurante(String nombreResto, String email, String contraseña, String ubicacion, int numMesas, LocalDateTime diasHorarios) {
+    public Restaurante(String nombreResto, String email, String contraseña, String ubicacion, int numMesas,
+                       LocalDateTime diasHorarios, ListaReservas listaReservas) {
         this.nombreResto = nombreResto;
         this.email = email;
         this.contraseña = contraseña;
         this.ubicacion = ubicacion;
         this.numMesas = numMesas;
         this.diasHorarios = diasHorarios;
+        this.listaReservas = listaReservas;
     }
 
     public long getId() {

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ReservaController {
 
     @Autowired
-    ReservaRepository reservaRepository;
+    private ReservaRepository reservaRepository;
 
     @GetMapping("/api/reserva/{id}")
     public ReservaDTO getReserva(@PathVariable long id){
