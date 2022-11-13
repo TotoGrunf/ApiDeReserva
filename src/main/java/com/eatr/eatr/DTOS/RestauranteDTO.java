@@ -2,6 +2,7 @@ package com.eatr.eatr.DTOS;
 
 import com.eatr.eatr.models.ListaReservas;
 import com.eatr.eatr.models.Restaurante;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.time.LocalDateTime;
 
@@ -52,7 +53,7 @@ public class RestauranteDTO {
     public ListaReservas getListaReservas() {
         return listaReservas;
     }
-
+    @JsonIgnore
     public void setListaReservas(ListaReservas listaReservas) {
         this.listaReservas = listaReservas;
     }

@@ -1,5 +1,6 @@
 package com.eatr.eatr.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -31,7 +32,6 @@ public class ListaReservas {
         this.aceptacionDeReserva = aceptacionDeReserva;
         this.fecha = fecha;
         this.restaurante = restaurante;
-
     }
 
     public long getId() {
@@ -61,7 +61,7 @@ public class ListaReservas {
     public Restaurante getRestaurante() {
         return restaurante;
     }
-
+    @JsonIgnore
     public void setRestaurante(Restaurante restaurante) {
         this.restaurante = restaurante;
     }
