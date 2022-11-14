@@ -38,7 +38,6 @@ public class Reserva {
         this.fecha = fecha;
         this.usuario = usuario;
         this.cantidadDePersonas = cantidadDePersonas;
-
         this.aceptacion = aceptacion;
     }
 

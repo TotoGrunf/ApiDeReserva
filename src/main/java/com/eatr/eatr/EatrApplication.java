@@ -1,5 +1,6 @@
 package com.eatr.eatr;
 
+import com.eatr.eatr.models.Reserva;
 import com.eatr.eatr.models.Restaurante;
 import com.eatr.eatr.models.Usuario;
 import com.eatr.eatr.repositories.ReservaRepository;
@@ -35,13 +36,11 @@ public class EatrApplication {
 			Restaurante restaurante = new Restaurante("El Irlandes Cocinante","elirlandes@gmail.com", passwordEncoder.encode("resto4321"),
 					"Calle Falsa 123",30,LocalDateTime.now());
 
+			Reserva reserva1 = new Reserva("21", LocalDateTime.now(), usuario1, 4, true);
+			Reserva reserva2 = new Reserva("15", LocalDateTime.now(), usuario2, 2, true);
 
-
-
-
-
-
-
+			reservaRepository.save(reserva1);
+			reservaRepository.save(reserva2);
 
 			usuarioRepository.save(usuario1);
 			usuarioRepository.save(usuario2);

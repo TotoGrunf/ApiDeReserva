@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 @RestController
 public class RestauranteController {
 
@@ -22,8 +24,8 @@ public class RestauranteController {
     private RestauranteRepository restauranteRepository;
 
     @GetMapping("/api/restaurantes")
-    public List<Restaurante> restaurantes(){
-        return restauranteRepository.findAll();
+    public List<RestauranteDTO> restaurantes(){
+        return restauranteRepository.findAll().stream().map(RestauranteDTO::new).collect(toList());
     }
 
     @GetMapping("/api/restaurante/{id}")
