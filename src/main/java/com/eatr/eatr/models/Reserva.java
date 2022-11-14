@@ -33,12 +33,13 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(String numMesa, LocalDateTime fecha, Usuario usuario, Integer cantidadDePersonas, Boolean aceptacion) {
+    public Reserva(String numMesa, LocalDateTime fecha, Usuario usuario, Integer cantidadDePersonas, Boolean aceptacion, Restaurante restaurante) {
         this.numMesa = numMesa;
         this.fecha = fecha;
         this.usuario = usuario;
         this.cantidadDePersonas = cantidadDePersonas;
         this.aceptacion = aceptacion;
+        this.restaurante = restaurante;
     }
 
     public long getId() {

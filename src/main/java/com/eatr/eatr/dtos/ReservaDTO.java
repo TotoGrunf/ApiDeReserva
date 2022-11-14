@@ -14,7 +14,7 @@ public class ReservaDTO {
     private Integer cantidadDePersonas;
     private Usuario usuario;
 
-    private Restaurante restaurante;
+
 
     public ReservaDTO() {
     }
@@ -26,7 +26,7 @@ public class ReservaDTO {
         this.numMesa = reserva.getNumMesa();
         this.usuario = reserva.getUsuario();
         this.cantidadDePersonas = reserva.getCantidadDePersonas();
-        this.restaurante = reserva.getRestaurante();
+
     }
 
     public Long getId() {
@@ -45,9 +45,8 @@ public class ReservaDTO {
         return numMesa;
     }
 
-    public Restaurante getRestaurante() {
-        return restaurante;
-    }
+
+
 
     public LocalDateTime getFecha() {
         return fecha;

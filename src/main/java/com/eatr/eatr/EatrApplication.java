@@ -32,20 +32,26 @@ public class EatrApplication {
 
 			Usuario usuario1 = new Usuario("GuillerminaGiovanelli", "3364495984", true);
 			Usuario usuario2 = new Usuario("Franck Francis", "55533344422", true);
+			Usuario usuario3 = new Usuario("cacho castaña", "55532344422", false);
 
 			Restaurante restaurante = new Restaurante("El Irlandes Cocinante","elirlandes@gmail.com", passwordEncoder.encode("resto4321"),
 					"Calle Falsa 123",30,LocalDateTime.now());
 
-			Reserva reserva1 = new Reserva("21", LocalDateTime.now(), usuario1, 4, true);
-			Reserva reserva2 = new Reserva("15", LocalDateTime.now(), usuario2, 2, true);
+			Reserva reserva1 = new Reserva("21", LocalDateTime.now(), usuario1, 4, true,restaurante);
+			Reserva reserva2 = new Reserva("15", LocalDateTime.now(), usuario2, 2, true,restaurante);
+			Reserva reserva3 = new Reserva("5", LocalDateTime.now(), usuario3, 10, false,restaurante);
 
+
+			restauranteRepository.save(restaurante);
 			reservaRepository.save(reserva1);
 			reservaRepository.save(reserva2);
+			reservaRepository.save(reserva3);
 
 			usuarioRepository.save(usuario1);
 			usuarioRepository.save(usuario2);
+			usuarioRepository.save(usuario3);
 
-			restauranteRepository.save(restaurante);
+
  		};
 	}
 
