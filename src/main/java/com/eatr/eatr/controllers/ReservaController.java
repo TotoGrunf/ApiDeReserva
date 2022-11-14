@@ -1,6 +1,6 @@
-package com.eatr.eatr.Controllers;
+package com.eatr.eatr.controllers;
 
-import com.eatr.eatr.DTOS.ReservaDTO;
+import com.eatr.eatr.dtos.ReservaDTO;
 import com.eatr.eatr.repositories.ReservaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

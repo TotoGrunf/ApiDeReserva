@@ -1,10 +1,9 @@
-package com.eatr.eatr.DTOS;
+package com.eatr.eatr.dtos;
 
 import com.eatr.eatr.models.Reserva;
 import com.eatr.eatr.models.Usuario;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 
 public class ReservaDTO {
 

@@ -1,6 +1,6 @@
-package com.eatr.eatr.Controllers;
+package com.eatr.eatr.controllers;
 
-import com.eatr.eatr.DTOS.UsuarioDTO;
+import com.eatr.eatr.dtos.UsuarioDTO;
 import com.eatr.eatr.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

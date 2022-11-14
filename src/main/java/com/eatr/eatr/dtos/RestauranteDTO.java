@@ -1,4 +1,4 @@
-package com.eatr.eatr.DTOS;
+package com.eatr.eatr.dtos;
 
 import com.eatr.eatr.models.ListaReservas;
 import com.eatr.eatr.models.Restaurante;
