@@ -1,6 +1,7 @@
 package com.eatr.eatr.dtos;
 
 import com.eatr.eatr.models.Reserva;
+import com.eatr.eatr.models.Restaurante;
 import com.eatr.eatr.models.Usuario;
 
 import java.time.LocalDateTime;
@@ -13,6 +14,8 @@ public class ReservaDTO {
     private Integer cantidadDePersonas;
     private Usuario usuario;
 
+    private Restaurante restaurante;
+
     public ReservaDTO() {
     }
 
@@ -23,6 +26,7 @@ public class ReservaDTO {
         this.numMesa = reserva.getNumMesa();
         this.usuario = reserva.getUsuario();
         this.cantidadDePersonas = reserva.getCantidadDePersonas();
+        this.restaurante = reserva.getRestaurante();
     }
 
     public Long getId() {
@@ -39,6 +43,10 @@ public class ReservaDTO {
 
     public String getNumMesa() {
         return numMesa;
+    }
+
+    public Restaurante getRestaurante() {
+        return restaurante;
     }
 
     public LocalDateTime getFecha() {

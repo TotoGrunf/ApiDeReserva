@@ -59,6 +59,14 @@ public class Restaurante {
         this.email = email;
     }
 
+    public Set<Reserva> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(Set<Reserva> reservas) {
+        this.reservas = reservas;
+    }
+
     public String getContraseña() {
         return contraseña;
     }

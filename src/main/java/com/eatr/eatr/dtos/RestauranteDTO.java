@@ -4,12 +4,16 @@ import com.eatr.eatr.models.Restaurante;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.time.LocalDateTime;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class RestauranteDTO {
 
-    private String nombreResto, email, contraseña, ubicacion;
+    private String nombreResto, ubicacion;
     private int numMesas;
     private LocalDateTime diasHorarios;
+
+    private Set<ReservaDTO> reservas;
 
 
     public RestauranteDTO() {
@@ -17,11 +21,10 @@ public class RestauranteDTO {
 
     public RestauranteDTO(Restaurante restaurante) {
         this.nombreResto = restaurante.getNombreResto();
-        this.email = restaurante.getEmail();
-        this.contraseña = restaurante.getContraseña();
         this.ubicacion = restaurante.getUbicacion();
         this.numMesas = restaurante.getNumMesas();
         this.diasHorarios = restaurante.getDiasHorarios();
+        this.reservas= restaurante.getReservas().stream().map(reserva -> new ReservaDTO(reserva)).collect(Collectors.toSet());
 
     }
 
@@ -29,13 +32,6 @@ public class RestauranteDTO {
         return nombreResto;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
 
     public String getUbicacion() {
         return ubicacion;
@@ -49,5 +45,7 @@ public class RestauranteDTO {
         return diasHorarios;
     }
 
-
+    public Set<ReservaDTO> getReservas() {
+        return reservas;
+    }
 }

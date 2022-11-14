@@ -82,6 +82,14 @@ public class Reserva {
         return usuario;
     }
 
+    public Restaurante getRestaurante() {
+        return restaurante;
+    }
+
+    public void setRestaurante(Restaurante restaurante) {
+        this.restaurante = restaurante;
+    }
+
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
