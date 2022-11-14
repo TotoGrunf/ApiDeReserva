@@ -1,9 +1,11 @@
 package com.eatr.eatr.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jdk.jshell.Snippet;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Entity
@@ -18,21 +20,26 @@ public class Reserva {
     private Usuario usuario;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "listaReservas_id")
-    private ListaReservas listaReservas;
+    @JoinColumn(name = "restaurante_id")
+    private Restaurante restaurante;
+
+
     private Integer cantidadDePersonas;
     private String numMesa;
     private LocalDateTime fecha;
 
+    private Boolean aceptacion;
+
     public Reserva() {
     }
 
-    public Reserva(String numMesa, LocalDateTime fecha, Usuario usuario, Integer cantidadDePersonas, ListaReservas listaReservas) {
+    public Reserva(String numMesa, LocalDateTime fecha, Usuario usuario, Integer cantidadDePersonas, Boolean aceptacion) {
         this.numMesa = numMesa;
         this.fecha = fecha;
         this.usuario = usuario;
         this.cantidadDePersonas = cantidadDePersonas;
-        this.listaReservas = listaReservas;
+
+        this.aceptacion = aceptacion;
     }
 
     public long getId() {
@@ -45,6 +52,14 @@ public class Reserva {
 
     public String getNumMesa() {
         return numMesa;
+    }
+
+    public Boolean getAceptacion() {
+        return aceptacion;
+    }
+
+    public void setAceptacion(Boolean aceptacion) {
+        this.aceptacion = aceptacion;
     }
 
     public void setNumMesa(String numMesa) {
@@ -62,21 +77,13 @@ public class Reserva {
     public LocalDateTime getFecha() {
         return fecha;
     }
-    @JsonIgnore
+
     public Usuario getUsuario() {
         return usuario;
     }
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-    }
-
-    public ListaReservas getListaReservas() {
-        return listaReservas;
-    }
-
-    public void setListaReservas(ListaReservas listaReservas) {
-        this.listaReservas = listaReservas;
     }
 
     public void setFecha(LocalDateTime fecha) {

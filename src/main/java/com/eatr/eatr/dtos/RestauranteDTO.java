@@ -1,6 +1,5 @@
 package com.eatr.eatr.dtos;
 
-import com.eatr.eatr.models.ListaReservas;
 import com.eatr.eatr.models.Restaurante;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -11,7 +10,7 @@ public class RestauranteDTO {
     private String nombreResto, email, contraseña, ubicacion;
     private int numMesas;
     private LocalDateTime diasHorarios;
-    private ListaReservas listaReservas;
+
 
     public RestauranteDTO() {
     }
@@ -23,7 +22,7 @@ public class RestauranteDTO {
         this.ubicacion = restaurante.getUbicacion();
         this.numMesas = restaurante.getNumMesas();
         this.diasHorarios = restaurante.getDiasHorarios();
-        this.listaReservas = restaurante.getListaReservas();
+
     }
 
     public String getNombreResto() {
@@ -50,11 +49,5 @@ public class RestauranteDTO {
         return diasHorarios;
     }
 
-    public ListaReservas getListaReservas() {
-        return listaReservas;
-    }
-    @JsonIgnore
-    public void setListaReservas(ListaReservas listaReservas) {
-        this.listaReservas = listaReservas;
-    }
+
 }

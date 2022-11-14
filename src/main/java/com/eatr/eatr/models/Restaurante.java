@@ -5,6 +5,9 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 public class Restaurante {
     @Id
@@ -12,8 +15,9 @@ public class Restaurante {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
-    @OneToOne(mappedBy = "restaurante")
-    private ListaReservas listaReservas;
+    @OneToMany(mappedBy = "restaurante", fetch = FetchType.EAGER)
+    private Set<Reserva> reservas = new HashSet<>();
+
     private String nombreResto, email, contraseña, ubicacion;
     private int numMesas;
     private LocalDateTime diasHorarios;
@@ -87,11 +91,5 @@ public class Restaurante {
         this.diasHorarios = diasHorarios;
     }
 
-    public ListaReservas getListaReservas() {
-        return listaReservas;
-    }
-    @JsonIgnore
-    public void setListaReservas(ListaReservas listaReservas) {
-        this.listaReservas = listaReservas;
-    }
+
 }
